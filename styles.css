@@ -22,8 +22,8 @@ body {
 /* Innenbereich des Headers */
 .header-inner {
   width: 100%;
-
   padding: 1.25rem 2rem; /* großer Abstand wie auf dem Desktop-Screenshot */
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -131,6 +131,45 @@ body {
     gap: 0.8rem;
   }
 }
+/* ===== HERO SECTION ===== */
+
+.hero-section {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Bild bestimmt die Höhe */
+.hero-image {
+  width: 100%;
+  height: auto;         
+  display: block;
+  object-fit: contain;
+}
+@media (max-width: 768px) {
+  .hero-section {
+    height: 90vh;
+  }
+
+  .hero-image {
+    height: 100%;
+    object-fit: cover;
+    object-position: 60% 25%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 90vh;
+  }
+
+  .hero-image {
+    object-position: 60% 25%;
+    /*
+      Noch stärkerer Fokus auf Model & Schmuck
+    */
+  }
+}
+
 /* 2. Slogan-Sektion: nur hier Playfair Display */
 .slogan-section {
   padding: 4rem 1.5rem;
