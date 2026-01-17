@@ -21,9 +21,9 @@ body {
 
 /* Innenbereich des Headers */
 .header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.75rem 3.5rem; /* großer Abstand wie auf dem Desktop-Screenshot */
+  width: 100%;
+
+  padding: 1.25rem 2rem; /* großer Abstand wie auf dem Desktop-Screenshot */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,7 +46,7 @@ body {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 1.75rem;          /* Abstand zwischen Warenkorb und Herz */
+  gap: 1.25rem;          /* Abstand zwischen Warenkorb und Herz */
 }
 
 /* Generelles Icon-Button-Design */
@@ -93,18 +93,11 @@ body {
   justify-content: center;
 }
 
-/* ===== Dummy Content (nur zum Testen) ===== */
-.hero,
-.content-block {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 3.5rem;
-}
 
 /* ===== Responsive für kleinere Screens ===== */
 @media (max-width: 768px) {
   .header-inner {
-    padding: 1.25rem 1.5rem;   /* weniger horizontaler Abstand -> Logo und Icons rücken zusammen */
+    padding: 1rem 1.25rem;   /* weniger horizontaler Abstand -> Logo und Icons rücken zusammen */
   }
 
   .logo-image {
@@ -112,7 +105,7 @@ body {
   }
 
   .header-actions {
-    gap: 1.2rem;               /* Icons rücken enger zusammen */
+    gap: 1rem;               /* Icons rücken enger zusammen */
   }
 
   .hero,
@@ -123,7 +116,7 @@ body {
 
 @media (max-width: 480px) {
   .header-inner {
-    padding: 1rem 1.25rem;
+    padding: 0.8rem 1rem;
   }
 
   .logo-image {
@@ -135,7 +128,7 @@ body {
   }
 
   .header-actions {
-    gap: 1rem;
+    gap: 0.8rem;
   }
 }
 /* 2. Slogan-Sektion: nur hier Playfair Display */
@@ -147,5 +140,5 @@ body {
 .slogan-section .slogan-text {
   font-family: "Playfair Display", "Times New Roman", serif;
   font-size: 2.4rem;
-  font-weight: 600;
+  font-weight: 100;
 }
