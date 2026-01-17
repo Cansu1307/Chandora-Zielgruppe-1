@@ -1,0 +1,151 @@
+/* 1. Standard-Schrift für die gesamte Seite */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Gothic A1", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Optional: generelle Typo-Einstellungen */
+body {
+  line-height: 1.6;
+  color: #111;
+}
+
+/* ===== Sticky Header ===== */
+.site-header {
+  position: sticky;        /* bleibt beim Scrollen oben kleben */
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+}
+
+/* Innenbereich des Headers */
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.75rem 3.5rem; /* großer Abstand wie auf dem Desktop-Screenshot */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-image {
+  display: block;
+  height: 32px;         /* passe nach Bedarf an, orientiert am Screenshot */
+  width: auto;
+}
+
+/* Icons rechts */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;          /* Abstand zwischen Warenkorb und Herz */
+}
+
+/* Generelles Icon-Button-Design */
+.icon-button {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.icon-image {
+  display: block;
+  height: 22px;       /* Größe der Icons */
+  width: auto;
+}
+
+/* Herz-Zähler Badge */
+.favorites-count-badge {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.9rem;
+  min-width: 1.2rem;
+  height: 1.2rem;
+  padding: 0 0.15rem;
+
+  border-radius: 999px;
+  background-color: #111;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 500;
+
+  display: none; /* wird durch JS eingeblendet, sobald > 0 */
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Dummy Content (nur zum Testen) ===== */
+.hero,
+.content-block {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 3.5rem;
+}
+
+/* ===== Responsive für kleinere Screens ===== */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 1.25rem 1.5rem;   /* weniger horizontaler Abstand -> Logo und Icons rücken zusammen */
+  }
+
+  .logo-image {
+    height: 26px;              /* Logo etwas kleiner */
+  }
+
+  .header-actions {
+    gap: 1.2rem;               /* Icons rücken enger zusammen */
+  }
+
+  .hero,
+  .content-block {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    padding: 1rem 1.25rem;
+  }
+
+  .logo-image {
+    height: 22px;
+  }
+
+  .icon-image {
+    height: 20px;
+  }
+
+  .header-actions {
+    gap: 1rem;
+  }
+}
+/* 2. Slogan-Sektion: nur hier Playfair Display */
+.slogan-section {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.slogan-section .slogan-text {
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+}

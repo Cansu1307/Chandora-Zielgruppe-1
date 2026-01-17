@@ -1,11 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chandora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+   
+    <link rel="stylesheet" href="styles.css">
+
+
 </head>
+
 <body>
-    
+<!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- Logo links -->
+      <a href="index.html" class="logo-link">
+        <!-- Passe den Pfad / Dateinamen an -->
+        <img
+          src="images/logo-chandora.png"
+          alt="CHANDORA Logo"
+          class="logo-image"
+        />
+      </a>
+
+      <!-- Icons rechts -->
+      <div class="header-actions">
+        <!-- Warenkorb-Icon (noch ohne Funktion) -->
+        <button class="icon-button cart-button" type="button" aria-label="Warenkorb">
+          <img
+            src="images/icon-cart.png"
+            alt="Warenkorb Icon"
+            class="icon-image"
+          />
+        </button>
+
+        <!-- Herz-Icon mit Zähler -->
+        <button class="icon-button favorites-button" type="button" aria-label="Favoriten">
+          <span class="favorites-count-badge" id="favorites-count">0</span>
+          <img
+            src="images/icon-heart.png"
+            alt="Favoriten Icon"
+            class="icon-image"
+          />
+        </button>
+      </div>
+    </div>
+  </header>
+
+    <!-- Slogan-Sektion mit eigener Klasse -->
+    <section class="slogan-section">
+        <h2 class="slogan-text">“For those who crave style - literally”</h2>
+    </section>
+
+    <!-- Dein eigenes JS -->
+    <script src="script.js"></script>
 </body>
+
+</html>
+</head>
+
+<body>
+
+</body>
+
 </html>
