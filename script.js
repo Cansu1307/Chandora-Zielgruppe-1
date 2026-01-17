@@ -1,14 +1,10 @@
-// ===== Favoriten-Zähler für das Herz =====
-
-// Element für den Badge-Zähler
+// ===== Favoriten-Zähler im Header =====
+let favoritesCount = 0;
 const favoritesCountElement = document.getElementById("favorites-count");
 
-// interner Zähler
-let favoritesCount = 0;
-
-// zentrale Funktion: Zähler setzen + Anzeige aktualisieren
 function setFavoritesCount(newCount) {
   favoritesCount = Math.max(0, newCount);
+
   if (!favoritesCountElement) return;
 
   favoritesCountElement.textContent = favoritesCount;
@@ -20,7 +16,6 @@ function setFavoritesCount(newCount) {
   }
 }
 
-// Helferfunktionen, die du später von den Produktkarten aus nutzen kannst
 function incrementFavorites() {
   setFavoritesCount(favoritesCount + 1);
 }
@@ -29,25 +24,75 @@ function decrementFavorites() {
   setFavoritesCount(favoritesCount - 1);
 }
 
-// Initialisierung, wenn die Seite geladen ist
-document.addEventListener("DOMContentLoaded", () => {
-  setFavoritesCount(0);
-
-  // Aktuell: Klick auf das Herz erhöht testweise den Zähler um 1
-  // (später ersetzt du das durch Logik pro Produktkarte)
-  const favoritesButton = document.querySelector(".favorites-button");
-  if (favoritesButton) {
-    favoritesButton.addEventListener("click", () => {
-      incrementFavorites();
-    });
+// ===== Scroll-Animation (IntersectionObserver) =====
+function initScrollAnimations() {
+  const elements = document.querySelectorAll(".reveal-on-scroll");
+  if (!("IntersectionObserver" in window)) {
+    // Fallback: alles sofort sichtbar
+    elements.forEach((el) => el.classList.add("is-visible"));
+    return;
   }
 
-  // Warenkorb-Button ist vorbereitet, aber aktuell ohne Funktion
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target); // nur einmal animieren
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    }
+  );
+
+  elements.forEach((el) => observer.observe(el));
+}
+
+// ===== Produkt-Like-Logik =====
+function initProductLikes() {
+  const productCards = document.querySelectorAll(".product-card");
+
+  productCards.forEach((card) => {
+    const likeButton = card.querySelector(".product-like-button");
+    if (!likeButton) return;
+
+    likeButton.addEventListener("click", () => {
+      const isLiked = likeButton.classList.toggle("is-liked");
+
+      if (isLiked) {
+        incrementFavorites();
+      } else {
+        decrementFavorites();
+      }
+    });
+  });
+}
+
+// ===== Initialisierung nach DOM-Load =====
+document.addEventListener("DOMContentLoaded", () => {
+  // Zähler beim Laden ausblenden (0)
+  setFavoritesCount(0);
+
+  // Produkt-Likes aktivieren
+  initProductLikes();
+
+  // Scroll-Animation aktivieren
+  initScrollAnimations();
+
+  // Optional: Header-Buttons (Warenkorb / Herz) loggen o.Ä.
   const cartButton = document.querySelector(".cart-button");
   if (cartButton) {
     cartButton.addEventListener("click", () => {
-      // Hier kannst du später deine Warenkorb-Logik ergänzen
       console.log("Warenkorb-Button geklickt");
+    });
+  }
+
+  const headerFavoritesButton = document.querySelector(".favorites-button");
+  if (headerFavoritesButton) {
+    headerFavoritesButton.addEventListener("click", () => {
+      console.log("Header-Favoriten-Button geklickt");
     });
   }
 });
