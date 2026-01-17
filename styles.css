@@ -823,6 +823,74 @@ body {
         /* Mobile: 18 */
     }
 }
+/* ===== VORTEILE SEKTION ===== */
+
+.benefits-section {
+  margin-top: 170px;           /* Desktop: Abstand zu "How its made?" */
+  background-color: #ffffff;
+}
+
+.benefits-inner {
+  display: flex;
+  justify-content: center;     /* Karten werden zentriert */
+  gap: 70px;                   /* Abstand zwischen den Karten */
+  padding: 0 50px;             /* etwas Luft links/rechts, Seiten bleiben symmetrisch */
+}
+
+/* Karten: 4:5, ca. 300x400 auf Desktop */
+.benefit-card {
+  background-color: #F8F8F8;
+  aspect-ratio: 4 / 5;         /* wichtig: 4:5 Verhältnis */
+  width: 300px;                /* ≈300x400, Höhe ergibt sich aus aspect-ratio */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2.4rem 2rem;
+}
+
+/* Desktop-Typo */
+.benefit-main {
+  font-size: 48px;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+}
+
+.benefit-sub {
+  font-size: 40px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* ===== MOBILE / TABLET ===== */
+@media (max-width: 768px) {
+  /* Mobile: Abstand zu "How its made?" */
+  .benefits-section {
+    margin-top: 120px;
+  }
+
+  .benefits-inner {
+    flex-direction: column;    /* Karten untereinander */
+    align-items: center;       /* zentriert im Viewport */
+    gap: 25px;                 /* vertikaler Abstand zwischen den Karten */
+    padding: 0;                /* Karten selbst übernehmen das Zentrieren */
+  }
+
+  .benefit-card {
+     width: calc(100% - 130px);   /* ~65px links + 65px rechts */
+    max-width: 320px;            /* optional, damit sie nicht zu breit werden */
+    margin: 0 auto 25px; 
+  }
+
+  /* Mobile Typo */
+  .benefit-main {
+    font-size: 40px;
+  }
+
+  .benefit-sub {
+    font-size: 32px;
+  }
+}
 
 /* 2. Slogan-Sektion: nur hier Playfair Display */
 .slogan-section {
