@@ -823,83 +823,207 @@ body {
         /* Mobile: 18 */
     }
 }
+
 /* ===== VORTEILE SEKTION ===== */
 
 .benefits-section {
-  margin-top: 170px;           /* Desktop: Abstand zu "How its made?" */
-  background-color: #ffffff;
+    margin-top: 170px;
+    /* Desktop: Abstand zu "How its made?" */
+    background-color: #ffffff;
 }
 
 .benefits-inner {
-  display: flex;
-  justify-content: center;     /* Karten werden zentriert */
-  gap: 70px;                   /* Abstand zwischen den Karten */
-  padding: 0 50px;             /* etwas Luft links/rechts, Seiten bleiben symmetrisch */
+    display: flex;
+    justify-content: center;
+    /* Karten werden zentriert */
+    gap: 70px;
+    /* Abstand zwischen den Karten */
+    padding: 0 50px;
+    /* etwas Luft links/rechts, Seiten bleiben symmetrisch */
 }
 
 /* Karten: 4:5, ca. 300x400 auf Desktop */
 .benefit-card {
-  background-color: #F8F8F8;
-  aspect-ratio: 4 / 5;         /* wichtig: 4:5 Verhältnis */
-  width: 300px;                /* ≈300x400, Höhe ergibt sich aus aspect-ratio */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 2.4rem 2rem;
+    background-color: #F8F8F8;
+    aspect-ratio: 4 / 5;
+    /* wichtig: 4:5 Verhältnis */
+    width: 300px;
+    /* ≈300x400, Höhe ergibt sich aus aspect-ratio */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2.4rem 2rem;
 }
 
 /* Desktop-Typo */
 .benefit-main {
-  font-size: 48px;
-  font-weight: 500;
-  margin: 0 0 0.5rem;
+    font-size: 48px;
+    font-weight: 500;
+    margin: 0 0 0.5rem;
 }
 
 .benefit-sub {
-  font-size: 40px;
-  font-weight: 400;
-  margin: 0;
-  line-height: 1.1;
+    font-size: 40px;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.1;
 }
 
 /* ===== MOBILE / TABLET ===== */
 @media (max-width: 768px) {
-  /* Mobile: Abstand zu "How its made?" */
-  .benefits-section {
-    margin-top: 120px;
-  }
 
-  .benefits-inner {
-    flex-direction: column;    /* Karten untereinander */
-    align-items: center;       /* zentriert im Viewport */
-    gap: 25px;                 /* vertikaler Abstand zwischen den Karten */
-    padding: 0;                /* Karten selbst übernehmen das Zentrieren */
-  }
+    /* Mobile: Abstand zu "How its made?" */
+    .benefits-section {
+        margin-top: 120px;
+    }
 
-  .benefit-card {
-     width: calc(100% - 130px);   /* ~65px links + 65px rechts */
-    max-width: 320px;            /* optional, damit sie nicht zu breit werden */
-    margin: 0 auto 25px; 
-  }
+    .benefits-inner {
+        flex-direction: column;
+        /* Karten untereinander */
+        align-items: center;
+        /* zentriert im Viewport */
+        gap: 25px;
+        /* vertikaler Abstand zwischen den Karten */
+        padding: 0;
+        /* Karten selbst übernehmen das Zentrieren */
+    }
 
-  /* Mobile Typo */
-  .benefit-main {
-    font-size: 40px;
-  }
+    .benefit-card {
+        width: calc(100% - 130px);
+        /* ~65px links + 65px rechts */
+        max-width: 320px;
+        /* optional, damit sie nicht zu breit werden */
+        margin: 0 auto 25px;
+    }
 
-  .benefit-sub {
-    font-size: 32px;
-  }
+    /* Mobile Typo */
+    .benefit-main {
+        font-size: 40px;
+    }
+
+    .benefit-sub {
+        font-size: 32px;
+    }
 }
 
-/* 2. Slogan-Sektion: nur hier Playfair Display */
+/* ===== BRACELET SEKTION ===== */
+
+.bracelet-section {
+    margin-top: 190px;
+    /* Abstand nach der Vorteile-Sektion (Desktop) */
+    background-color: #ffffff;
+}
+
+/* Bild Desktop: volle Breite, Originalhöhe */
+.bracelet-image-wrapper {
+    width: 100%;
+}
+
+.bracelet-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Text & Button (Desktop) */
+.bracelet-content {
+    margin-top: 70px;
+    /* Abstand Bild -> Text */
+    padding: 0 50px 85px 50px;
+    /* links 50px, unten 85px */
+}
+
+.bracelet-text {
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.bracelet-link {
+    display: inline-block;
+    margin-top: 20px;
+    /* Abstand Text -> Button */
+    font-size: 18px;
+    text-decoration: underline;
+    color: #111;
+    transition: color 0.2s ease;
+}
+
+.bracelet-link:hover {
+    color: #ff93a0;
+}
+
+/* ===== MOBILE / TABLET ===== */
+@media (max-width: 768px) {
+
+    /* Abstand nach Vorteile-Sektion */
+    .bracelet-section {
+        margin-top: 120px;
+    }
+
+    /* Bild: 4:5, volle Viewport-Breite, wie in den anderen Sektionen */
+    .bracelet-image-wrapper {
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+    }
+
+    .bracelet-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Textblock */
+    .bracelet-content {
+        margin-top: 25px;
+        /* Abstand Bild -> Text (25px) */
+        padding: 0 30px 100px 30px;
+        /* Seitenabstand 30px, unten 100px */
+    }
+
+    .bracelet-text {
+        font-size: 17px;
+    }
+
+    .bracelet-link {
+        margin-top: 20px;
+        /* Abstand Text -> Button */
+        font-size: 18px;
+    }
+}
+
+/* ===== SLOGAN SEKTION ===== */
 .slogan-section {
-    padding: 4rem 1.5rem;
+    margin-bottom: 100px;
+    /* Desktop Abstand */
     text-align: center;
 }
 
 .slogan-section .slogan-text {
     font-family: "Playfair Display", "Times New Roman", serif;
-    font-size: 2.4rem;
-    font-weight: 100;
+    font-size: 24px;
+    /* passt zur Vorlage Desktop */
+
+
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .slogan-section {
+        margin-bottom: 120px;
+        /* Mobile Abstand */
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .slogan-section .slogan-text {
+        font-size: 24px;
+        /* Mobile wie Vorlage */
+    }
 }
