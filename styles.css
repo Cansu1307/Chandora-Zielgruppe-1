@@ -1000,17 +1000,27 @@ body {
 
 /* ===== SLOGAN SEKTION ===== */
 .slogan-section {
-    margin-bottom: 100px;
-    /* Desktop Abstand */
-    text-align: center;
+  margin: 100px 0; /* Desktop Abstand */
+  text-align: center;
 }
 
-.slogan-section .slogan-text {
-    font-family: "Playfair Display", "Times New Roman", serif;
+.slogan-text {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;        /* Desktop Größe wie Vorlage */
+  font-weight: 100;       /* ⬅️ NICHT 100 */
+  line-height: 1.3;       /* wichtig für Eleganz */
+  color: #111;
+}
+@media (max-width: 768px) {
+  .slogan-section {
+    margin: 120px 0; /* Mobile Abstand */
+  }
+
+  .slogan-text {
     font-size: 24px;
-    /* passt zur Vorlage Desktop */
-
-
+    font-weight: 100;
+    line-height: 1.35;
+  }
 }
 
 /* ===== MOBILE ===== */
@@ -1092,15 +1102,19 @@ body {
     margin-top: 0; /* Abstand kommt über Linien, nicht über margin */
   }
 
-  .footer-accordion-header {
-    width: 100%;
-    padding: 16px 0;
-    margin: 0;                          /* Abstand steuern wir über .footer-links */
-    border-top: 1px solid #d9d9d9;
-    border-bottom: 1px solid #d9d9d9;
-    cursor: pointer;
-    justify-content: space-between;
-  }
+.footer-accordion-header {
+  width: 100%;
+  padding: 16px 0;
+  margin: 0;
+  border-bottom: 1px solid #d9d9d9;   /* ✅ nur unten */
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+/* ✅ nur der erste Header bekommt oben eine Linie */
+.footer-column:first-child .footer-accordion-header {
+  border-top: 1px solid #d9d9d9;
+}
 
   .footer-accordion-icon {
     display: inline-block;
@@ -1151,11 +1165,16 @@ body {
   gap: 8px;                      /* 8px Abstand zwischen den Icons */
 }
 
+/* Social Media Icon – Kreis */
 .footer-social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #d9d9d9;   /* feiner grauer Rand wie Vorlage */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
+  background-color: #fff;
 }
 
 .footer-social-icon {

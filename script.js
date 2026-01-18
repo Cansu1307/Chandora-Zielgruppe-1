@@ -52,15 +52,15 @@ function initScrollAnimations() {
 
 // ===== Produkt-Like-Logik =====
 function initProductLikes() {
-  const productCards = document.querySelectorAll(".product-card");
+  // Alle Herz-Buttons auf der Seite
+  const likeButtons = document.querySelectorAll(".product-like-button");
 
-  productCards.forEach((card) => {
-    const likeButton = card.querySelector(".product-like-button");
-    if (!likeButton) return;
-
+  likeButtons.forEach((likeButton) => {
     likeButton.addEventListener("click", () => {
+      // Button-Zustand toggeln (CSS färbt das Icon ein)
       const isLiked = likeButton.classList.toggle("is-liked");
 
+      // Header-Zähler anpassen
       if (isLiked) {
         incrementFavorites();
       } else {
