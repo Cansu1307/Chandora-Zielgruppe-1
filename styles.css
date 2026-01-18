@@ -1126,3 +1126,60 @@ body {
     margin-bottom: 0;
   }
 }
+/* ===== FOOTER: Logo + Social Icons ===== */
+
+/* Desktop / Standard */
+.footer-bottom {
+  margin-top: 40px;              /* 40px Abstand von den Listen */
+  padding: 0 50px 40px 50px;     /* links 50px, rechts 50px, unten 40px */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.footer-logo-image {
+  display: block;
+  height: 32px;                  /* ggf. anpassen, bis es wie im Design wirkt */
+  width: auto;
+}
+
+/* Icons rechts in einer Reihe */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;                      /* 8px Abstand zwischen den Icons */
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.footer-social-icon {
+  display: block;
+  height: 20px;                  /* Icon-Größe, ggf. feinjustieren */
+  width: 20px;
+}
+
+/* ===== Mobile / Tablet ===== */
+@media (max-width: 768px) {
+  .footer-bottom {
+    margin-top: 100px;           /* 100px Abstand von den Listen */
+    padding: 0 20px 40px 20px;   /* links 20px für Icons & Logo */
+    flex-direction: column;      /* untereinander */
+    align-items: flex-start;     /* links ausrichten */
+    gap: 30px;                   /* 30px Abstand zwischen Icons und Logo */
+  }
+
+  /* Reihenfolge: Icons -> Logo */
+  .footer-socials {
+    order: 1;
+  }
+
+  .footer-logo {
+    order: 2;
+  }
+}
