@@ -96,3 +96,59 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+  (function () {
+    const mq = window.matchMedia("(max-width: 768px)");
+
+    function initFooterAccordions() {
+      const accordions = document.querySelectorAll("[data-footer-accordion]");
+
+      accordions.forEach((acc) => {
+        const btn = acc.querySelector(".footer-accordion-header");
+        const icon = acc.querySelector(".footer-accordion-icon");
+        const links = acc.querySelector(".footer-links");
+
+        // Entferne alte Click-Handler
+        btn.replaceWith(btn.cloneNode(true));
+      });
+
+      // Nach dem Klonen erneut referenzieren und Events setzen
+      document.querySelectorAll("[data-footer-accordion]").forEach((acc) => {
+        const btn = acc.querySelector(".footer-accordion-header");
+        const icon = acc.querySelector(".footer-accordion-icon");
+        const links = acc.querySelector(".footer-links");
+
+        if (!mq.matches) {
+          /* Desktop: immer offen, kein Akkordeon-Verhalten */
+          acc.classList.remove("is-open");
+          if (icon) icon.textContent = "";
+          links.style.maxHeight = "none";
+          btn.setAttribute("aria-expanded", "true");
+          btn.style.cursor = "default";
+          return;
+        }
+
+        /* Mobile: Akkordeon aktiv */
+        acc.classList.remove("is-open");
+        links.style.maxHeight = null;
+        btn.style.cursor = "pointer";
+        btn.setAttribute("aria-expanded", "false");
+        if (icon) icon.textContent = "+";
+
+        btn.addEventListener("click", () => {
+          const open = acc.classList.toggle("is-open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          if (icon) icon.textContent = open ? "–" : "+";
+        });
+      });
+    }
+
+    // Initial aufrufen
+    initFooterAccordions();
+
+    // Bei Resize neu konfigurieren (Desktop <-> Mobile)
+    window.addEventListener("resize", () => {
+      initFooterAccordions();
+    });
+  })();
+

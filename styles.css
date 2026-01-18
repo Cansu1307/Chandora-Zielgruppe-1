@@ -1027,3 +1027,102 @@ body {
         /* Mobile wie Vorlage */
     }
 }
+/* ===== FOOTER ===== */
+
+.site-footer {
+  background-color: #ffffff;
+  /* falls du oben noch Luft brauchst, hier evtl. margin-top setzen */
+}
+
+/* Desktop / Standard */
+.footer-inner {
+  display: flex;
+  padding: 0 50px 40px; /* 50px links, 30px Abstand der Spalten kommt weiter unten */
+  column-gap: 30px;     /* Abstand zwischen "Rechtliches" und "Chandora" */
+  align-items: flex-start;
+}
+
+
+.footer-accordion-header {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 0 14px;             /* 14px Abstand zur Liste */
+  cursor: default;              /* auf Desktop kein "Button"-Gefühl */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.footer-heading {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Plus/Minus-Icon nur auf Mobile sichtbar */
+.footer-accordion-icon {
+  display: none;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+.footer-links li + li {
+  margin-top: 4px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #111;
+}
+
+/* ==== MOBILE FOOTER (Akkordeon) ==== */
+@media (max-width: 768px) {
+  .footer-inner {
+    display: block;
+    padding: 0 30px 40px;   /* 30px Seitenabstand wie gewünscht */
+  }
+
+  .footer-column + .footer-column {
+    margin-top: 0; /* Abstand kommt über Linien, nicht über margin */
+  }
+
+  .footer-accordion-header {
+    width: 100%;
+    padding: 16px 0;
+    margin: 0;                          /* Abstand steuern wir über .footer-links */
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .footer-accordion-icon {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .footer-links {
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  /* Wenn offen: Inhalt anzeigen + Abstand nach oben */
+  .footer-column.is-open .footer-links {
+    margin-top: 14px;        /* entspricht Desktop-Abstand Headline → Liste */
+    max-height: 500px;       /* groß genug für alle Einträge */
+  }
+
+  /* kleine optische Trennung zwischen den beiden Blöcken */
+  .footer-column:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
